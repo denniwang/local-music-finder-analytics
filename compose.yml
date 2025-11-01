@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  # --------------------
+  # 1. PostgreSQL Service
+  # --------------------
+  db:
+    image: postgres:15-alpine # Use a stable, lightweight image
+    container_name: psql-db # A fixed name for easier identification
+    restart: always
+    environment:
+      # Required environment variables for PostgreSQL Docker image
+      POSTGRES_DB: lmf-analytics      # The database name (used in Spring URL)
+      POSTGRES_USER: lmf-admin     # The database user (used in Spring config)
+      POSTGRES_PASSWORD: lmf-password # The password (used in Spring config)
+    ports:
+      # Map container port 5432 to host port 5432 (optional, but useful for GUI tools like DBeaver)
+      - "5432:5432"
+    volumes:
+      # Persist data to prevent loss on container restart/removal
+      - db_data:/var/lib/postgresql/data
+
+
+volumes:
+  db_data: # Define the named volume for persistence
