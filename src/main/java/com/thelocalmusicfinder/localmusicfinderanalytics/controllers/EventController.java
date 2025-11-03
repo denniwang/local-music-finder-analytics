@@ -1,6 +1,7 @@
 package com.thelocalmusicfinder.localmusicfinderanalytics.controllers;
 
 import com.thelocalmusicfinder.localmusicfinderanalytics.dto.CreateBandUserDTO;
+import com.thelocalmusicfinder.localmusicfinderanalytics.services.BandUserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,10 +16,9 @@ public class EventController {
     //private final VenueUserService venueUserService;
     //private final VideoUserService videoUserService;
 
-    @PostMapping
-    public ResponseEntity<CreateBandUserDTO> createBandUser(@RequestBody CreateBandUserDTO payload) {
+    @PostMapping()
+    public void createBandUser(@RequestBody CreateBandUserDTO payload) {
         bandUserService.createEvent(payload);
-
 
     }
 
