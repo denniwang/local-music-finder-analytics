@@ -20,7 +20,6 @@ public class BandUserService {
         bandUserEvent.setUserId(payload.getUserId());
         bandUserEvent.setBandId(payload.getBandId());
 
-        BandUserEvent savedEvent = bandUserRepository.save(bandUserEvent);
-        return savedEvent;
+        return bandUserRepository.save(bandUserEvent);
     }
 }
