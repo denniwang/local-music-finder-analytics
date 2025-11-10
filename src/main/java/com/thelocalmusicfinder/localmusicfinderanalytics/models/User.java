@@ -1,5 +1,6 @@
 package com.thelocalmusicfinder.localmusicfinderanalytics.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,12 +10,15 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.Instant;
+import java.util.List;
 
 @Entity
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonIgnoreProperties({"bandUserEvents", "venueUserEvents","videoUserEvents"})
+@Table(name ="users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,5 +39,12 @@ public class User {
 
     @Column(name="browser")
     private String browser;
+
+    @OneToMany(mappedBy = "user", cascade =  CascadeType.ALL)
+    private List<VenueUserEvent> venueUserEvents;
+    @OneToMany(mappedBy = "user", cascade =  CascadeType.ALL)
+    private List<VideoUserEvent> videoUserEvents;
+    @OneToMany(mappedBy = "user", cascade =  CascadeType.ALL)
+    private List<BandUserEvent> bandUserEvents;
 }
 

@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "lmf-analytics",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

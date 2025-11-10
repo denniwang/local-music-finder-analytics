@@ -1,0 +1,16 @@
+meta {
+  name: get video user event
+  type: http
+  seq: 5
+}
+
+get {
+  url: http://localhost:8080/api/event/video-user
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

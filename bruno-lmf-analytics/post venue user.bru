@@ -1,0 +1,23 @@
+meta {
+  name: post venue user
+  type: http
+  seq: 6
+}
+
+post {
+  url: http://localhost:8080/api/event/venue-user
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "venueId":1,
+    "userId":1
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

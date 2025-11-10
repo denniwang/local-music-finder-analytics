@@ -19,11 +19,12 @@ public class VideoUserEvent {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "user_id", nullable = false)
-    private Long userId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="user_id")
+    private User user;
 
     @Column(name = "video_id", nullable = false)
-    private Long videoId;
+    private String videoId;
 
     @CreationTimestamp
     @Column(name="timestamp", nullable=false, updatable=false)

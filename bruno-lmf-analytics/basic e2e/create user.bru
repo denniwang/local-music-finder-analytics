@@ -1,0 +1,25 @@
+meta {
+  name: create user
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:8080/api/event/user
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "location":"cali",
+    "browser":"chrome browser",
+    "referrer":"google.com",
+    "operatingSystem":"mac os"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

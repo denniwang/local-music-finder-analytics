@@ -1,0 +1,23 @@
+meta {
+  name: video user event
+  type: http
+  seq: 4
+}
+
+post {
+  url: http://localhost:8080/api/event/video-user
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "videoId":"hello owlrld",
+    "userId":1
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

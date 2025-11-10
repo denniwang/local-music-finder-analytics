@@ -1,5 +1,6 @@
 package com.thelocalmusicfinder.localmusicfinderanalytics.dto;
 
+import com.thelocalmusicfinder.localmusicfinderanalytics.models.User;
 import lombok.Builder;
 import lombok.Data;
 

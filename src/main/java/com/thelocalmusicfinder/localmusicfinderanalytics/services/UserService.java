@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class UserService {
@@ -20,6 +22,13 @@ public class UserService {
         u.setBrowser(payload.getBrowser());
         u.setReferrer(payload.getReferrer());
 
-        return userRepository.save(u);
+        User savedUser = userRepository.save(u);
+        System.out.println(savedUser);
+
+        return savedUser;
+    }
+
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
     }
 }

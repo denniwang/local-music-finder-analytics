@@ -7,5 +7,5 @@ import lombok.Data;
 @Builder
 public class CreateVideoUserDTO {
     private Long userId;
-    private Long videoId;
+    private String videoId;
 }
